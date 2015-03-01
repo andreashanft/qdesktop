@@ -121,9 +121,7 @@ static const BOOL qDefaultInteractWhenLaunchesValue = NO;
 - (void)updateWebView {
     [self.webView.mainFrame loadRequest:[NSURLRequest requestWithURL:self.url]];
 
-#if DEBUG
-    NSLog(@"updated webview with %@", self.url);
-#endif
+    LogEcho(@"updated webview with %@", self.url);
 }
 
 - (void)initStatusMenu {

@@ -5,3 +5,24 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+// GLOBAL DEBUG SWITCH
+#ifndef DEBUG
+    #define DEBUG 0 // Do not change, this is set by build settings!
+#endif
+
+// Logging macros
+#if DEBUG
+    #define LogError(fmt, ...) NSLog((@"[ERROR] %s [Line %d] " fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__)
+    #define LogWarning(fmt, ...) NSLog((@"[WARNING] %s [Line %d] " fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__)
+    #define LogEcho(fmt, ...) NSLog((@"" fmt), ##__VA_ARGS__)
+    #define LogDebug(fmt, ...) NSLog((@"[DEBUG] %s [Line %d] " fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__)
+    #define LogDebugExt(fmt, ...) NSLog((@"[DEBUG] %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+    #define LogError(fmt, ...) (void)0
+    #define LogWarning(fmt, ...) (void)0
+    #define LogEcho(fmt, ...) (void)0
+    #define LogDebug(fmt, ...) (void)0
+    #define LogDebugExt(fmt, ...) (void)0
+#endif
+
