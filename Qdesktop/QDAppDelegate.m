@@ -127,7 +127,7 @@ static const BOOL qDefaultInteractWhenLaunchesValue = NO;
 - (void)initStatusMenu {
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
-    self.statusItem.title = @"😎";
+    self.statusItem.title = @"🎥";
     self.statusItem.highlightMode = YES;
     self.statusItem.menu = self.statusMenu;
 }
