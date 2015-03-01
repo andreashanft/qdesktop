@@ -8,6 +8,8 @@
 
 #import "QDWindow.h"
 
+#define DEBUG_QDWINDOW (0 && DEBUG)
+
 
 @interface QDWindow ()
 
@@ -37,7 +39,7 @@
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle
                   backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation {
 
-#ifdef DEBUG
+#if DEBUG_QDWINDOW
     self = [super initWithContentRect:contentRect styleMask:windowStyle backing:bufferingType defer:deferCreation];
 #else
     self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:bufferingType
@@ -50,7 +52,7 @@
 
     _background = NO;
 
-#ifndef DEBUG
+#if !(DEBUG_QDWINDOW)
     self.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces
             | NSWindowCollectionBehaviorTransient
             | NSWindowCollectionBehaviorIgnoresCycle;
